@@ -1,6 +1,7 @@
 import datetime
-from dateutil.relativedelta import relativedelta
 import calendar
+from dateutil.relativedelta import relativedelta
+
 
 class Date:
 
@@ -9,7 +10,6 @@ class Date:
             self._date = args[0]
         else:
             self._date = datetime.date(*args)
-        self._format = "ymd"
         self.is_holiday = None
 
     def __repr__(self):
@@ -83,12 +83,6 @@ class Date:
         return self._date.strftime(*args, **kwargs)
 
 
-def random_date():
-    pass
-
-def from_datetime(date: datetime.date):
-    return Date()
-
 def today():
     return Date(datetime.date.today())
 
@@ -99,33 +93,3 @@ def tomorrow():
     return Date(datetime.date.today()) + 1
 
 
-class daterange:
-
-    def __init__(self, start, end, step=1, by="days"):
-        if isinstance(start, tuple):
-            self.start = Date(*start)
-        elif isinstance(start, Date):
-            self.start = start
-        else:
-            raise ValueError("Invalid")
-        if isinstance(start, tuple):
-            self.end = Date(*end)
-        elif isinstance(start, Date):
-            self.end = end
-        else:
-            raise ValueError("Invalid")
-        self.step = step
-        self.by = by
-
-    def __iter__(self):
-        num_days = (self.end - self.start).days
-        li = [self.start + f"{i} {self.by}"
-              for i in range(num_days)]
-        self._it = iter(li)
-        return self._it
-
-    def __next__(self):
-        return next(self._it)
-
-    def __contains__(self, date: datetime.date):
-        return date in self._it
