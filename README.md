@@ -1,5 +1,11 @@
 # Hourglass
 
+Hourglass is still in its infancy, but if you want to install, you may do this:
+
+```
+pip install git+https://github.com/remykarem/hourglass#egg=hourglass
+```
+
 ## Arithmetic
 
 Perform intuitive arithmetics with the `hourglass.Date` object.
