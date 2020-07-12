@@ -1,11 +1,12 @@
 import setuptools
+from hourglass import __version__
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="Hourglass",
-    version="0.0.1",
+    version=__version__,
     author="Raimi bin Karim",
     author_email="raimi.bkarim@gmail.com",
     description="Hourglass",
