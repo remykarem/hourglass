@@ -86,10 +86,10 @@ class Date:
 def today():
     return Date(datetime.date.today())
 
+
 def yesterday():
     return Date(datetime.date.today()) - 1
 
+
 def tomorrow():
     return Date(datetime.date.today()) + 1
-
-
